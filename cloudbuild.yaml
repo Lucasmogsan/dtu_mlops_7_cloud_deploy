@@ -1,10 +1,10 @@
 steps:
 # Build the container image
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-f', 'simple_fastapi_app.dockerfile', '.', '-t', 'gcr.io/gcr.io/nifty-byway-410709/gcp_test_app']
+  args: ['build', '-f', 'simple_fastapi_app.dockerfile', '.', '-t', 'gcr.io/gcr.io/nifty-byway-410709/gcp_test_app:latest']
 # Push the container image to Container Registry
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/nifty-byway-410709/gcp_test_app']
+  args: ['push', 'gcr.io/nifty-byway-410709/gcp_test_app:latest']
 # Deploy container image to Cloud Run
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: gcloud
@@ -13,8 +13,8 @@ steps:
   - 'deploy'
   - 'gcp_test_app'
   - '--image'
-  - 'gcr.io/nifty-byway-410709/gcp_test_app'
+  - 'gcr.io/nifty-byway-410709/gcp_test_app:latest'
   - '--region'
   - 'europe-west6'
 images:
-  - 'gcr.io/nifty-byway-410709/gcp_test_app'
+  - 'gcr.io/nifty-byway-410709/gcp_test_app:latest'
