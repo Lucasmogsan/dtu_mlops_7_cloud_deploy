@@ -1,7 +1,7 @@
 steps:
 # Build the container image
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/gcr.io/nifty-byway-410709/gcp_test_app', './dockerfiles/simple_fastapi_app.dockerfile']
+  args: ['build', '-f', 'simple_fastapi_app.dockerfile', '.', '-t', 'gcr.io/gcr.io/nifty-byway-410709/gcp_test_app']
 # Push the container image to Container Registry
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/nifty-byway-410709/gcp_test_app']
