@@ -16,4 +16,4 @@ RUN pip install uvicorn
 
 COPY app/simple_fastapi_app.py simple_fastapi_app.py
 
-CMD exec uvicorn simple_fastapi_app:app --port 8080 --host 0.0.0.0 --workers 1
+CMD exec uvicorn simple_fastapi_app:app --port $PORT --host 0.0.0.0 --workers 1
