@@ -11,7 +11,7 @@ steps:
   args:
   - 'run'
   - 'deploy'
-  - 'gcp_test_app'
+  - 'gcp-test-app-run'
   - '--image'
   - 'gcr.io/nifty-byway-410709/gcp_test_app:latest'
   - '--region'
