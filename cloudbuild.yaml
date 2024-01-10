@@ -1,0 +1,20 @@
+steps:
+# Build the container image
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/gcr.io/nifty-byway-410709/gcp_test_app', './dockerfiles/Dockerfile']
+# Push the container image to Container Registry
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/nifty-byway-410709/gcp_test_app']
+# Deploy container image to Cloud Run
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: gcloud
+  args:
+  - 'run'
+  - 'deploy'
+  - 'gcp_test_app'
+  - '--image'
+  - 'gcr.io/nifty-byway-410709/gcp_test_app'
+  - '--region'
+  - 'europe-west6'
+images:
+  - 'gcr.io/nifty-byway-410709/gcp_test_app'
