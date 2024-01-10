@@ -3,7 +3,7 @@
 1. Build
 
 ```bash
-docker build -f simple_fastapi_app.dockerfile . -t gcp_test_app:latest
+docker build -f dockerfiles/simple_fastapi_app.dockerfile . -t gcp_test_app:latest
 ```
 
 2. Tag and push
